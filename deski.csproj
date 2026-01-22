@@ -6,10 +6,24 @@
     <ImplicitUsings>true</ImplicitUsings>
     <Nullable>enable</Nullable>
 
+    <!-- App Info -->
+    <AssemblyName>Deski</AssemblyName>
+    <RootNamespace>Deski</RootNamespace>
+    <Company>Maleek</Company>
+    <Product>Deski - Virtual Desktop Helper</Product>
+    <Description>Deski - Virtual Desktop Helper</Description>
+    <PackageId>Deski.VirtualDesktopHelper</PackageId>
+
     <!-- For AOT shrink -->
     <PublishAot>true</PublishAot>
     <InvariantGlobalization>true</InvariantGlobalization>
     <TrimMode>link</TrimMode>
+
+     <!-- Versioning -->
+    <Version>1.0.0</Version>
+    <FileVersion>1.0.0.0</FileVersion>
+    <AssemblyVersion>1.0.0.0</AssemblyVersion>
+
   </PropertyGroup>
 
   <ItemGroup>

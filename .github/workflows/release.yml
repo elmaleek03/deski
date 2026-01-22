@@ -1,0 +1,40 @@
+name: Build & Release (Windows)
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: windows-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: "8.0.x"
+
+      - name: Publish win-x64
+        run: dotnet publish -c Release -r win-x64 --self-contained false -o publish
+
+      - name: Archive executable
+        run: |
+          cd publish
+          7z a deskmini.zip *
+        shell: pwsh
+
+      - name: Create Release
+        uses: softprops/action-gh-release@v1
+        with:
+          tag_name: ${{ github.ref_name }}-${{ github.run_number }}
+          name: "DeskMini Release ${{ github.run_number }}"
+          draft: false
+          prerelease: false
+          files: publish/deskmini.zip
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
