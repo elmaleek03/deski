@@ -50,9 +50,6 @@ Thumbs.db
 # Rider/JetBrains
 .rider/
 
-# VirtualDesktopAccessor binary (we embed it)
-VirtualDesktopAccessor.dll
-
 # Optional: If you keep your publish output around
 release/
 dist/
