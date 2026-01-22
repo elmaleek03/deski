@@ -28,17 +28,18 @@ jobs:
       - name: Archive executable
         run: |
           cd publish
-          $version = "${env:GITHUB_REF_NAME}"   # e.g. v0.1.0
-          Compress-Archive -Path * -DestinationPath "Deski-$version.zip"
+          $version = "${env:GITHUB_REF_NAME}"   # e.g. v1.0.2
+          $files = Get-ChildItem -File | Where-Object { $_.Extension -ne ".pdb" }
+          $files | Compress-Archive -DestinationPath "Deski-$version.zip"
         shell: pwsh
 
       - name: Create Release
         uses: softprops/action-gh-release@v2
         with:
-          tag_name: ${{ github.ref_name }}                 # e.g. v0.1.0
-          name: "Deski ${{ github.ref_name }}"             # "Deski v0.1.0"
+          tag_name: ${{ github.ref_name }}                 # e.g. v1.0.2
+          name: "Deski ${{ github.ref_name }}"             # "Deski v1.0.2"
           draft: false
           prerelease: false
-          files: publish/Deski-${{ github.ref_name }}.zip  # Deski-v0.1.0.zip
+          files: publish/Deski-${{ github.ref_name }}.zip  # Deski-v1.0.2.zip
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
