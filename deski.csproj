@@ -1,0 +1,21 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net8.0-windows10.0.19041.0</TargetFramework>
+    <UseWindowsForms>false</UseWindowsForms>
+    <ImplicitUsings>true</ImplicitUsings>
+    <Nullable>enable</Nullable>
+
+    <!-- For AOT shrink -->
+    <PublishAot>true</PublishAot>
+    <InvariantGlobalization>true</InvariantGlobalization>
+    <TrimMode>link</TrimMode>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="System.Drawing.Common" Version="8.0.0" />
+    <EmbeddedResource Include="VirtualDesktopAccessor.dll" LogicalName="VirtualDesktopAccessor.dll" />
+  </ItemGroup>
+  
+
+</Project>

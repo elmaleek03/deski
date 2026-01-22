@@ -1,0 +1,58 @@
+# Build / publish artifacts
+bin/
+obj/
+out/
+publish/
+artifacts/
+
+# User-specific stuff
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# VS/Rider cache
+.vs/
+.idea/
+*.sln.iml
+
+# NuGet
+*.nupkg
+*.snupkg
+packages/
+.nuget/
+project.lock.json
+project.fragment.lock.json
+
+# Logs
+*.log
+
+# OS junk
+.DS_Store
+Thumbs.db
+
+# Temp
+*.tmp
+*.temp
+
+# Dotnet artifacts
+*.deps.json
+*.runtimeconfig.json
+
+# Visual Studio config
+*.vcxproj.user
+*.cachefile
+
+# Publish profiles (Optional)
+*.pubxml
+*.pubxml.user
+
+# Rider/JetBrains
+.rider/
+
+# VirtualDesktopAccessor binary (we embed it)
+VirtualDesktopAccessor.dll
+
+# Optional: If you keep your publish output around
+release/
+dist/
